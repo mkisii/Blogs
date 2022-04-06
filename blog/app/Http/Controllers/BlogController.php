@@ -63,8 +63,9 @@ class BlogController extends Controller
     {
         //
         $blog = Blog::find($id);
+        $author =$blog->author;
 
-        return view('Blogs.show',['blog'=> $blog]);
+        return view('Blogs.show',['blog'=> $blog, 'is_author'=>$author->id ===Auth::id()]);
     }
 
     /**
@@ -73,9 +74,12 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
         //
+        $blog = Blog::find($id);
+        return view('Blogs.edit', ['blog' => $blog]);
+
     }
 
     /**
@@ -87,9 +91,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $blog = Blog::find($id);
-        
-        
+        $blog = Blog::find($id);        
         $blog->tittle = $request->input('title');
         $blog->description = $request->input('description');
         $blog->image = $request->input('image');
@@ -107,10 +109,10 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Blog::destroy($id);
         // $blog = Blog::find($id);
         // $blog->delete();
-        $blog->destroy($id);
+        
         return redirect()->route('home');
 
     }

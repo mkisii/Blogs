@@ -6,6 +6,7 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -17,9 +18,13 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $blogs = Blog::all();
+        // $blogs = Blog::all();
         // return view('Blogs.index', compact('blogs'));
-        return view('Blogs.index')->with('blogs', $blogs);
+        $id  = 0;
+        $blogs = DB::table('blogs')
+        ->insert(['tittle' => 'Environmen', 'description' => 'Mother Nature  Compesent the nature', 'user_id' => $id, 'image' => 'img3.jpg']);
+ 
+        dd($blogs);
     }
 
     /**
@@ -64,7 +69,7 @@ class BlogController extends Controller
         //
         $blog = Blog::find($id);
         $author =$blog->author;
-
+      
         return view('Blogs.show',['blog'=> $blog, 'is_author'=>$author->id ===Auth::id()]);
     }
 

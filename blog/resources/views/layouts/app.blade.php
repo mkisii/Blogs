@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -55,7 +54,7 @@
 
                             @if(Route::has('blog.create'))
                                 <a id="create-blog" class="nav-link btn btn-primary text-white"
-                                href="{{ route('blog.create')}}" role="button"> Create Post </a>
+                                href="{{ route('blog.create')}}" role="button"> Create Laravel </a>
 
                             @endif
                             <li class="nav-item dropdown">
@@ -74,7 +73,7 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="Laravel" class="d-none">
                                         @csrf
                                     </form>
                                 </div>

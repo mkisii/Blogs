@@ -18,13 +18,13 @@ class BlogController extends Controller
     public function index()
     {
         //
-        // $blogs = Blog::all();
-        // return view('Blogs.index', compact('blogs'));
-        $id  = 0;
-        $blogs = DB::table('blogs')
-        ->insert(['tittle' => 'Environmen', 'description' => 'Mother Nature  Compesent the nature', 'user_id' => $id, 'image' => 'img3.jpg']);
+        $blogs = Blog::all();
+        return view('Blogs.index', compact('blogs'));
+        // $id  = 0;
+        // $blogs = DB::table('blogs')
+        // ->insert(['tittle' => 'Environmen', 'description' => 'Mother Nature  Compesent the nature', 'user_id' => $id, 'image' => 'img3.jpg']);
  
-        dd($blogs);
+        // dd($blogs);
     }
 
     /**
@@ -75,7 +75,7 @@ class BlogController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     *z
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */

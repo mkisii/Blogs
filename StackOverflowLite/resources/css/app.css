@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.background-image{
+
+    background-image:url('https://cdn.pixabay.com/photo/2020/04/08/16/32/keyboard-5017973_960_720.jpg') ;
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 600px;
+
+}
